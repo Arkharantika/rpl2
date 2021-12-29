@@ -212,12 +212,12 @@
                                 <li>
                                     <a class="{{ request()->is('admin/mahasiswa') || request()->is('admin/mahasiswa/*') ? ' active' : '' }}"
                                         href="{{route('admin.mahasiswa.index')}}">
-                                        List Mahasiswa</a>
+                                        Mahasiswa</a>
                                 </li>
                                 <li>
                                     <a class="{{ request()->is('admin/dosen') || request()->is('admin/dosen/*') ? ' active' : '' }}"
                                         href="{{route('admin.dosen.index')}}">
-                                        List Dosen</a>
+                                        Dosen</a>
                                 </li>
                                 <li>
                                     <a class="{{ request()->is('admin/akademik') || request()->is('admin/akademik/*') ? ' active' : '' }}"

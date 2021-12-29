@@ -40,13 +40,18 @@
                                 <div class="text-danger">{{ $errors->first('angkatan')}}</div>
                             </div>
                             <div class="form-group">
-                                <label for="nama dosen">Sks <span class="text-danger">*</span></label>
-                                <input required type="number" step="1" min="0" class="form-control" name="sks" placeholder="Total SKS yang dicapai">
+                                <!-- <label for="nama dosen">Sks <span class="text-danger">*</span></label> -->
+                                <input  type="hidden" required type="number" step="1" min="0" value="200" class="form-control" name="sks" placeholder="Total SKS yang dicapai">
                                 <div class="text-danger">{{ $errors->first('sks')}}</div>
                             </div>
                             <div class="form-group">
-                                <label for="nama dosen">IPK <span class="text-danger">*</span></label>
-                                <input required type="number" step="0.01" min="0" max="4" class="form-control" name="ipk" placeholder="IPK terakhir">
+                                <!-- <label for="nama dosen">Sks <span class="text-danger">*</span></label> -->
+                                <input  type="hidden" required type="number" step="1" min="0" value="0" class="form-control" name="aye" placeholder="Total SKS yang dicapai">
+                                <div class="text-danger">{{ $errors->first('sks')}}</div>
+                            </div>
+                            <div class="form-group">
+                                <!-- <label for="nama dosen">IPK <span class="text-danger">*</span></label> -->
+                                <input  type="hidden" required type="number" step="0.01" min="0" value="1" max="4" class="form-control" name="ipk" placeholder="IPK terakhir">
                                 <div class="text-danger">{{ $errors->first('ipk')}}</div>
                             </div>
                             <div class="form-group">

@@ -4,6 +4,11 @@
 
 @section('content')
 <div class="content">
+@if(session()->get('message'))
+    <div class="alert alert-success alert-dismissable mt-20" role="alert">
+        <strong> {{ session()->get('message') }} </strong>
+    </div>
+    @endif
     <h2 class="content-heading">Penilaian RPL Penguji Wawancara</h2>
     <div class="row">
         <div class="col-md-12">
@@ -51,7 +56,7 @@
                     <h3 class="block-title">Nilai RPL</h3>
                 </div>
                 <div class="block-content">
-                    <form action="{{url('setornilaipenguji/'.$data->nim)}}" method="post">
+                    <form action="{{url('setornilaipenguji/'.$data2->ta_id)}}" method="post">
                         @csrf
                         <div class="form-group row">
                             <h5 class="col-md-4 ">KODE ETIK DAN ETIKA PROFESI INSINYUR</h5>

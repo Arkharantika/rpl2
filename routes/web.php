@@ -498,7 +498,7 @@ Route::get('pengujianwawancara/{id}','TadraftController@showNilaiPenguji')->name
 Route::post('paraPenguji','TaController@paraPenguji')->name('paraPenguji');
 
 Route::post('setornilaipembimbing/{id}','TaController@nilaiPembimbing')->name('nilaiPembimbing');
-//Route::post('setornilaipenguji/{id}','TaController@nilaiPenguji')->name('nilaiPenguji');
+Route::post('setornilaipenguji/{id}','TaController@nilaiPenguji')->name('nilaiPenguji');
 
 // Admin
 Route::get('tutuprpl','TaController@tutuprpl')->name('tutuprpl');

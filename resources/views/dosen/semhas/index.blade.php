@@ -50,8 +50,10 @@
                             <?php $status=$row['pem'] ?>
                             @if($status == '1')
                             <span class="badge badge-primary">Penguji Online 1</span>
-                            @else
+                            @elseif($status == '2')
                             <span class="badge badge-info">Penguji Online 2</span>
+                            @elseif($status == '3')
+                            <span class="badge badge-secondary">Penguji Online 3</span>
                             @endif
                         </td>
                         <!-- <td class="d-none d-sm-table-cell" style="text-align: center;">

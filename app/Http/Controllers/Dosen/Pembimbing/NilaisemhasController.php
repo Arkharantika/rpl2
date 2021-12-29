@@ -108,7 +108,10 @@ class NilaisemhasController extends Controller
      */
     public function show($id)
     {
-        $data2 = Dosen::bimbinganta(Auth::user()->nim)->first();
+        // return $id;
+        $yusuf = Dosen::bimbinganta(Auth::user()->nim);
+        $data2 = $yusuf->where('ta_id',$id)->first();
+        // return $yusuf;
         $cpembimbing = $data2->pembimbing;
         $cpem = $data2->pem;
 
@@ -118,6 +121,8 @@ class NilaisemhasController extends Controller
         $nimnya = $murid->mahasiswa_id;
         $data = Mahasiswa::where('id',$nimnya)->get()->first();
         $nimbro = $data->nim;
+
+        // return $nimbro;
 
         $pengecheckM = tabelnilai::where('nimnya',$nimbro)->where('jabatan','pembimbing')
         ->where('status',0)
@@ -129,7 +134,7 @@ class NilaisemhasController extends Controller
         $pengecheck = tabelnilai::where('nimnya',$nimbro)->where('jabatan','pembimbing')
         ->where('no_pem',$cpem)->where('dosennya',$cpembimbing)->get()->first();
 
-        //return $pengecheck->total;
+        // return $pengecheck;
 
         // BAB A
         $jumlah_step_1 = (($pengecheck->no_1 * 20 * 1) + ($pengecheck->no_2 * 20 * (1/2)) + ($pengecheck->no_3 * 20 * (3/10)) + ($pengecheck->no_4 * 20 * (1/5)))/2;

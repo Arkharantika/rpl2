@@ -47,7 +47,7 @@
                     <h3 class="block-title">Nilai RPL</h3>
                 </div>
                 <div class="block-content">
-                <form action="{{url('setornilaipembimbing/'.$data->nim)}}" method="post">
+                <form action="{{url('setornilaipembimbing/'.$data2->ta_id)}}" method="post">
                     @csrf
                     <h5>KODE ETIK DAN ETIKA  PROFESI  INSINYUR</h5>
                     <h6>Pengalaman Organisasi Profesi</h6>

@@ -10,6 +10,8 @@ use Illuminate\Htpp\Response;
 use App\Imports\MahasiswaImport;
 use Excel;
 
+use App\Models\tabelnilai;
+
 class MahasiswaController extends Controller
 {
     /**
@@ -61,6 +63,7 @@ class MahasiswaController extends Controller
             'ipk' => 'required',
             'pem_akademik' => 'required',
             'status_mhs' => 'required',
+            'aye' => 'required'
         ]);
         // dd($validatedData);
         Mahasiswa::create($validatedData);
@@ -79,7 +82,12 @@ class MahasiswaController extends Controller
                 ->join('ref_dosen','ref_dosen.id','=','ref_mahasiswa.pem_akademik')
                 ->where('ref_mahasiswa.id',$id)->firstOrFail();
         // dd($data);
-        return view('admin.mahasiswa.view_mahasiswa',compact('data'));
+        $data2 = tabelnilai::where('nimnya',$data->nim)->get()->all();
+        // return $data2;
+        // if($data2 == null){
+        //     return 'datanya nul0';
+        // }
+        return view('admin.mahasiswa.view_mahasiswa',compact('data2','data'));
     }
 
     /**

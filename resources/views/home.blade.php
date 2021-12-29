@@ -87,6 +87,34 @@
                 @endcan
 
                 @can('mahasiswa')
+                <div class="col-md-12">
+                    <div class="block block-rounded">
+                        <div class="block-content block-content-full">
+                            <div class="row pt-10 pb-10 text-center h-50">
+                                <div class="col-12 ">
+                                    <div class=" font-size-sm font-w600 text-uppercase text-muted">Form Pengisian DATA
+                                        RPL
+                                    </div>
+                                    <br>
+                                    @if($submitan->status == 1)
+                                    <div class="font-size-h5 font-w600 text-success">Dibuka</div>
+                                    <br>
+                                    <!-- <a href="{{url('tutuprpl')}}" data-userid="" data-toggle="" data-target=""
+                                        class="btn btn-rounded btn-hero btn-sm btn-alt-danger mb-5">Tutup Pengisian
+                                        Data</a> -->
+                                    @elseif($submitan->status == 0)
+                                    <div class="font-size-h5 font-w600 text-danger">Ditutup</div>
+                                    <br>
+                                    <!-- <a href="{{url('bukarpl')}}" data-userid="" data-toggle="" data-target=""
+                                        class="btn btn-rounded btn-hero btn-sm btn-alt-success mb-5">Buka Pengisian
+                                        Data</a> -->
+                                    @endif
+                                </div>
+                                <br><br><br>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <!-- Data Diri -->
                 <!-- <div class="col-md-12">
                     <div class="block block-rounded">

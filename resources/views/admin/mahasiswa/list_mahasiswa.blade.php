@@ -17,7 +17,7 @@
         <div class="block-content block-content-full">
             <p align="right">
                 <a href="{{route('admin.mahasiswa.create')}}" class="btn btn-primary mb-5 mr-5">Tambah Mahasiswa</a>
-                <a href="{{route('admin.importmhs')}}" class="btn btn-success mb-5 mr-5">Import</a>
+                <!-- <a href="{{route('admin.importmhs')}}" class="btn btn-success mb-5 mr-5">Import</a> -->
             </p>
             <!-- DataTables functionality is initialized with .js-dataTable-full class in js/pages/be_tables_datatables.min.js which was auto compiled from _es6/pages/be_tables_datatables.js -->
             <table class="table table-bordered table-striped table-vcenter js-dataTable-edited">
@@ -43,7 +43,7 @@
                     </td>
                     <td class="d-none d-sm-table-cell font-size-sm text-center">
                         <?php $status_mhs=$row->status_mhs ?>
-                        <span class="badge
+                        <!-- <span class="badge
                         @if($status_mhs == 'AKTIF')
                             badge-success
                         @elseif($status_mhs == 'LULUS')
@@ -59,7 +59,16 @@
                         @elseif($status_mhs == 'MENINGGAL DUNIA')
                             badge-secondary
                         @endif
-                        ">{{$row->status_mhs}}</span>
+                        ">{{$row->status_mhs}}</span> -->
+                        @if($row->megan == null)
+                        <span class="badge badge-success"> Penguji Belum di Set</span>
+                        @elseif($row->megan != null)
+                            @if($row->megan != $row->aye)
+                                <span class="badge badge-warning"> Nilai Penguji Belum Komplit</span>
+                            @elseif($row->megan == $row->aye)
+                                <span class="badge badge-primary"> Nilai Sudah Komplit ! </span>
+                            @endif
+                        @endif
                     </td>
                     <td width="350" style="text-align: center;">
                         <a href="{{route('admin.mahasiswa.show', $row->id)}}" class="btn btn-sm btn-alt-primary mr-5 mb-5" data-toggle="tooltip" data-placement="top" title="" data-original-title="Lihat"><i class="fa fa-eye"></i></a>

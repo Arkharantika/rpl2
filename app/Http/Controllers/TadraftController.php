@@ -2013,26 +2013,59 @@ class TadraftController extends Controller
 
     public function showNilaiPenguji($id)
     {
+        // return $id;
         // $data = Dosen::where(Auth::user()->nim)->get();
-        $data = Auth::user()->nim;
-        $data2 = Dosen::where('nip',$data)->get();
+        $yongjun = Dosen::pengujisemhas(Auth::user()->nim);
+        // $data = Auth::user()->nim;
+        $data2 = $yongjun->where('ta_id',$id)->first();
         // return $data2;
         $murid = Ta::where('id',$id)->get()->first();
-        $yongjun = $data2 = Dosen::pengujisemhas(Auth::user()->nim)->first();
         // return $murid;   
         $nimnya = $murid->mahasiswa_id;
-        // return $yongjun;
+        // return $yongjun;    
 
         $data = Mahasiswa::where('id',$nimnya)->get()->first();
         $nimbro = $data->nim;
+        // return $nimbro;
 
-        $cpem = $yongjun->penguji_ke;
-        $cpembimbing = $yongjun->penguji_semhas;
+        $cpem = $data2->penguji_ke;
+        $cpembimbing = $data2->penguji_semhas;
 
         $lin = Ta::where('mahasiswa_id',$data->id)->get()->first();
 
         $pengecheck = tabelnilai::where('nimnya',$nimbro)->where('jabatan','penguji')
         ->where('no_pem',$cpem)->where('dosennya',$cpembimbing)->get()->first();
+        
+        if($pengecheck->status == 1){
+            // return 'sudah isi dude';
+            $pengecheck2 = Pembimbing::where('ta_id',$lin->id)->get()->count();
+            
+            if($pengecheck2 == 1){
+                // return 'isi 1';
+                $yangke1 = tabelnilai::where('nimnya',$nimbro)->where('jabatan','pembimbing')
+                ->where('no_pem',1)->get()->first();
+                return view('lembarNilaiPengujiAfter',compact('pengecheck','data','yangke1'));
+            }
+            if($pengecheck2 == 2){
+                // return 'isi 2';
+                $yangke1 = tabelnilai::where('nimnya',$nimbro)->where('jabatan','pembimbing')
+                ->where('no_pem',1)->get()->first();
+                $yangke2 = tabelnilai::where('nimnya',$nimbro)->where('jabatan','pembimbing')
+                ->where('no_pem',2)->get()->first();
+                return view('lembarNilaiPenguji2After',compact('pengecheck','data','yangke1','yangke2'));
+            }
+            if($pengecheck2 == 3){
+                // return 'isi 3';
+                $yangke1 = tabelnilai::where('nimnya',$nimbro)->where('jabatan','pembimbing')
+                ->where('no_pem',1)->get()->first();
+                $yangke2 = tabelnilai::where('nimnya',$nimbro)->where('jabatan','pembimbing')
+                ->where('no_pem',2)->get()->first();
+                $yangke3 = tabelnilai::where('nimnya',$nimbro)->where('jabatan','pembimbing')
+                ->where('no_pem',3)->get()->first();
+                return view('lembarNilaiPenguji3After',compact('pengecheck','data','yangke1','yangke2','yangke3'));
+            }
+        }
+        // return $pengecheck;
 
         $pengecheck2 = Pembimbing::where('ta_id',$lin->id)->get()->count();
         // $kentang = Pembimbing::where('ta_id',709)->get()->first();
@@ -2040,14 +2073,14 @@ class TadraftController extends Controller
         if($pengecheck2 == 1){
             $yangke1 = tabelnilai::where('nimnya',$nimbro)->where('jabatan','pembimbing')
             ->where('no_pem',1)->get()->first();
-            return view('lembarNilaiPenguji',compact('data','yangke1'));
+            return view('lembarNilaiPenguji',compact('data2','data','yangke1'));
         }
         if($pengecheck2 == 2){
             $yangke1 = tabelnilai::where('nimnya',$nimbro)->where('jabatan','pembimbing')
             ->where('no_pem',1)->get()->first();
             $yangke2 = tabelnilai::where('nimnya',$nimbro)->where('jabatan','pembimbing')
             ->where('no_pem',2)->get()->first();
-            return view('lembarNilaiPenguji2',compact('data','yangke1','yangke2'));
+            return view('lembarNilaiPenguji2',compact('data2','data','yangke1','yangke2'));
         }
         if($pengecheck2 == 3){
             $yangke1 = tabelnilai::where('nimnya',$nimbro)->where('jabatan','pembimbing')
@@ -2056,7 +2089,7 @@ class TadraftController extends Controller
             ->where('no_pem',2)->get()->first();
             $yangke3 = tabelnilai::where('nimnya',$nimbro)->where('jabatan','pembimbing')
             ->where('no_pem',3)->get()->first();
-            return view('lembarNilaiPenguji2',compact('data','yangke1','yangke2','yangke3'));
+            return view('lembarNilaiPenguji3',compact('data2','data','yangke1','yangke2','yangke3'));
         }
        
     }

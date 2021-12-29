@@ -320,7 +320,7 @@ class TaController extends Controller
         //     'ta_id' => 203,'penguji_ke' => 1,'penguji_semhas' => $request->pengujiwawancara1,
         // ]);
 
-        // return 0;
+        // return $request;
         
 
         $checking = Mahasiswa::where('id',$request->mahasiswa_id)->get()->first();
@@ -492,6 +492,10 @@ class TaController extends Controller
                // 'nim' => $checking->nim,
                // 'status' => 0
            // ]);
+           $jumlahpenguji = tabelnilai::where('nimnya',$request->nim)->get()->count();
+           Mahasiswa::where('nim',$request->nim)->update([
+               'megan' => $jumlahpenguji,
+           ]);
 
             // return redirect()->away('https://localhost:8000/notifKoorTA-pendaftaran/'.$es);
             return back()->with('message','Data Berhasil diupdate !!');
@@ -499,12 +503,22 @@ class TaController extends Controller
     }
 
     public function nilaiPembimbing(Request $request,$id){
-        // return $request;
-        $data2 = Dosen::bimbinganta(Auth::user()->nim)->first();
+        // return $id;
+        $yusuf = Dosen::bimbinganta(Auth::user()->nim);
+        $data2 = $yusuf->where('ta_id',$id)->first();
+        // return $data2;
         $cpembimbing = $data2->pembimbing;
         $cpem = $data2->pem;
+        // return $cpem;
+        $murid = Ta::where('id',$id)->get()->first();
+        $nimnya = $murid->mahasiswa_id;
+        $data = Mahasiswa::where('id',$nimnya)->get()->first();
+        $aye = $data->aye;
+        $baru = $aye+1;
+        $nimbro = $data->nim;
+
         // return $data2;
-        $pengecheck = tabelnilai::where('nimnya',$id)->where('jabatan','pembimbing')
+        $pengecheck = tabelnilai::where('nimnya',$nimbro)->where('jabatan','pembimbing')
         ->where('no_pem',$cpem)->where('dosennya',$cpembimbing)->get()->first();
 
         // return $pengecheck;
@@ -549,13 +563,13 @@ class TaController extends Controller
          $jumlah_step_total = ($jumlah_step_A + $jumlah_step_B + $jumlah_step_C + $jumlah_step_D + $jumlah_step_15 + $jumlah_step_16)/6;
  
         // return $jumlah_step_total;
-        $yakin = tabelnilai::where('nimnya',$id)->where('jabatan','pembimbing')
+        $yakin = tabelnilai::where('nimnya',$nimbro)->where('jabatan','pembimbing')
         ->where('no_pem',$cpem)->where('dosennya',$cpembimbing)->update([
             // 'nimnya' => $id,
             // 'jabatan' => 'pembimbing',
             // 'no_pem' => $data2->pem,
             'status' => 1,
-            'dosennya' => $data2->pembimbing,
+            // 'dosennya' => $data2->pembimbing,
             'no_1' => $request->no1,
             'no_2' => $request->no2,
             'no_3' => $request->no3,
@@ -612,13 +626,32 @@ class TaController extends Controller
             'jumlah_F'=>$jumlah_step_F,
             'total'=>$jumlah_step_total,
         ]);
+        Mahasiswa::where('id',$nimnya)->update([
+            'aye' => $baru,
+        ]);
         return back()->with('message','Terimakasih telah mensubmit nilai !!');
     }
     public function nilaiPenguji(Request $request,$id){
-        // return $request;
-        $data2 = Dosen::pengujisemhas(Auth::user()->nim)->first();
+        $yusuf = Dosen::pengujisemhas(Auth::user()->nim);
+        $data2 = $yusuf->where('ta_id',$id)->first();
+        
+        // return $data2;
+
+        // $data2 = Dosen::pengujisemhas(Auth::user()->nim)->first();
         $cpembimbing = $data2->penguji_semhas;
         $cpem = $data2->penguji_ke;
+
+        // return $cpem;
+        $murid = Ta::where('id',$id)->get()->first();
+        $nimnya = $murid->mahasiswa_id;
+        $data = Mahasiswa::where('id',$nimnya)->get()->first();
+        $aye = $data->aye;
+        $baru = $aye+1;
+        $nimbro = $data->nim;
+        // return $data2;
+        
+
+        // return $pengecheck;
 
         // BAB A
         $jumlah_step_1 = (($request->no1 * 20 * 1) + ($request->no2 * 20 * (1/2)) + ($request->no3 * 20 * (3/10)) + ($request->no4 * 20 * (1/5)))/2;
@@ -657,15 +690,20 @@ class TaController extends Controller
         
         // TOTAL ALL
         $jumlah_step_total = ($jumlah_step_A + $jumlah_step_B + $jumlah_step_C + $jumlah_step_D + $jumlah_step_15 + $jumlah_step_16)/6;
+        // $yakin = tabelnilai::where('nimnya',$id)->where('jabatan','penguji')->where('no_pem',$cpem)->where('dosennya',$cpembimbing)
+        // ->get()->first();
+        // return $yakin;
+        $pengecheck = tabelnilai::where('nimnya',$nimbro)->where('jabatan','penguji')
+        ->where('no_pem',$cpem)->where('dosennya',$cpembimbing)->get()->first();
 
-        // return $data2;
-        $yakin = tabelnilai::where('nimnya',$id)->where('jabatan','penguji')
-        ->where('no_pem',$cpem)->where('dosennya',$cpembimbing)->update([
+        $yakin = tabelnilai::where('nimnya',$nimbro)->where('jabatan','penguji')
+        ->where('no_pem',$cpem)->where('dosennya',$cpembimbing)
+        ->update([
             // 'nimnya' => $id,
             // 'jabatan' => 'pembimbing',
             // 'no_pem' => $data2->pem,
             'status' => 1,
-            'dosennya' => $data2->pembimbing,
+            // 'dosennya' => $cpembimbing,
             'no_1' => $request->no1,
             'no_2' => $request->no2,
             'no_3' => $request->no3,
@@ -721,6 +759,9 @@ class TaController extends Controller
             'jumlah_E'=>$jumlah_step_E,
             'jumlah_F'=>$jumlah_step_F,
             'total'=>$jumlah_step_total,
+        ]);
+        Mahasiswa::where('id',$nimnya)->update([
+            'aye' => $baru,
         ]);
         return back()->with('message','Terimakasih telah mensubmit nilai !!');
     }
