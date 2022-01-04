@@ -489,7 +489,7 @@ Route::post('komentar5f/{id}','TadraftController@komentar5f')->name('komentar5f'
 
 Route::post('komentar6a/{id}','TadraftController@komentar6a')->name('komentar6a');
 Route::post('komentar6b/{id}','TadraftController@komentar6b')->name('komentar6b');
-Route::post('komentar6b/{id}','TadraftController@komentar6b')->name('komentar6b');
+Route::post('komentar6c/{id}','TadraftController@komentar6c')->name('komentar6c');
 
 // penguji
 

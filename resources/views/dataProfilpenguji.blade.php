@@ -48,25 +48,25 @@
                                 {{ $row->gelar_tahun}}
                             </td>
                             <td class="font-w600 font-size-sm text-center">
-                                <a href="#">{{ $row->jurusan}}</a>
+                                {{ $row->jurusan}}
                             </td>
                             <td class="font-size-sm text-center">
                                 {{ $row->nama_alamat_telp}}
                             </td>
                             <td class="font-w600 font-size-sm text-center">
-                                <a href="#">{{ $row->sks}}</a>
+                                {{ $row->sks}}
                             </td>
                             <td class="font-w600 font-size-sm text-center">
-                                <a href="#">{{ $row->judul_skripsi}}</a>
+                                {{ $row->judul_skripsi}}
                             </td>
                             <td class="font-w600 font-size-sm text-center">
-                                <a href="#">{{ $row->nama_pem}}</a>
+                                {{ $row->nama_pem}}
                             </td>
                             <td class="font-w600 font-size-sm text-center">
-                                <a href="#">{{ $row->ijazah}}</a>
+                                <a href="{{url($row->ijazah) }}">{{ $row->ijazah}}</a>
                             </td>
                             <td class="font-w600 font-size-sm text-center">
-                                <a href="#">{{ $row->transkrip}}</a>
+                                <a href="{{url($row->transkrip) }}">{{ $row->transkrip}}</a>
                             </td>
                             </td>
                         </tr>
@@ -112,22 +112,22 @@
                                 {{ $row->jenis_pendidikan}}
                             </td>
                             <td class="font-w600 font-size-sm text-center">
-                                <a href="#">{{ $row->waktu}}</a>
+                                {{ $row->waktu}}
                             </td>
                             <td class="font-size-sm text-center">
                                 {{ $row->nama_alamat_telp}}
                             </td>
                             <td class="font-w600 font-size-sm text-center">
-                                <a href="#">{{ $row->materi}}</a>
+                                {{ $row->materi}}
                             </td>
                             <td class="font-w600 font-size-sm text-center">
-                                <a href="#">{{ $row->lamanya}}</a>
+                                {{ $row->lamanya}}
                             </td>
                             <td class="font-w600 font-size-sm text-center">
-                                <a href="#">{{ $row->jadwal}}</a>
+                                <a href="{{url($row->jadwal) }}">{{ $row->jadwal}}</a>
                             </td>
                             <td class="font-w600 font-size-sm text-center">
-                                <a href="#">{{ $row->sertifikat}}</a>
+                                <a href="{{url($row->sertifikat) }}">{{ $row->sertifikat}}</a>
                             </td>
                         </tr>
                         @endforeach
@@ -171,22 +171,22 @@
                                 {{ $row->jenis_pendidikan}}
                             </td>
                             <td class="font-w600 font-size-sm text-center">
-                                <a href="#">{{ $row->waktu}}</a>
+                                {{ $row->waktu}}
                             </td>
                             <td class="font-size-sm text-center">
                                 {{ $row->nama_alamat_telp}}
                             </td>
                             <td class="font-w600 font-size-sm text-center">
-                                <a href="#">{{ $row->materi}}</a>
+                                {{ $row->materi}}
                             </td>
                             <td class="font-w600 font-size-sm text-center">
-                                <a href="#">{{ $row->lamanya}}</a>
+                                {{ $row->lamanya}}
                             </td>
                             <td class="font-w600 font-size-sm text-center">
-                                <a href="#">{{ $row->jadwal}}</a>
+                                <a href="{{url($row->jadwal) }}">{{ $row->jadwal}}</a>
                             </td>
                             <td class="font-w600 font-size-sm text-center">
-                                <a href="#">{{ $row->sertifikat}}</a>
+                                <a href="{{url($row->sertifikat) }}">{{ $row->sertifikat}}</a>
                             </td>
                         </tr>
                         @endforeach
@@ -230,22 +230,22 @@
                                 {{ $row->bentuk_kegiatan}}
                             </td>
                             <td class="font-w600 font-size-sm text-center">
-                                <a href="#">{{ $row->waktu}}</a>
+                                {{ $row->waktu}}
                             </td>
                             <td class="font-size-sm text-center">
                                 {{ $row->nama_alamat_telp}}
                             </td>
                             <td class="font-w600 font-size-sm text-center">
-                                <a href="#">{{ $row->judul}}</a>
+                                {{ $row->judul}}
                             </td>
                             <td class="font-w600 font-size-sm text-center">
-                                <a href="#">{{ $row->daftar}}</a>
+                                {{ $row->daftar}}
                             </td>
                             <!-- <td class="font-w600 font-size-sm text-center">
-                                <a href="#">{{ $row->jadwal}}</a>
+                                {{ $row->jadwal}}</a>
                             </td> -->
                             <td class="font-w600 font-size-sm text-center">
-                                <a href="#">{{ $row->sertifikat}}</a>
+                                <a href="{{url($row->sertifikat) }}">{{ $row->sertifikat}}</a>
                             </td>
                         </tr>
                         @endforeach
@@ -283,29 +283,29 @@
                     </thead>
                     <tbody>
                         <?php $no=1; $idx=0; ?>
-                        @foreach ($datanya as $row)
+                        @foreach ($tigaB as $row)
                         <tr>
                             <td class="d-none d-sm-table-cell text-center font-size-sm text-center">{{ $no++}}</td>
                             <td class="d-none d-sm-table-cell text-center font-size-sm text-center">
                                 {{ $row->bentuk_kegiatan}}
                             </td>
                             <td class="font-w600 font-size-sm text-center">
-                                <a href="#">{{ $row->waktu}}</a>
+                                {{ $row->waktu}}
                             </td>
                             <td class="font-size-sm text-center">
                                 {{ $row->nama_alamat_telp}}
                             </td>
                             <td class="font-w600 font-size-sm text-center">
-                                <a href="#">{{ $row->judul}}</a>
+                                {{ $row->judul}}
                             </td>
                             <td class="font-w600 font-size-sm text-center">
-                                <a href="#">{{ $row->daftar}}</a>
+                                {{ $row->daftar}}
                             </td>
                             <!-- <td class="font-w600 font-size-sm text-center">
-                                <a href="#">{{ $row->jadwal}}</a>
+                                {{ $row->jadwal}}</a>
                             </td> -->
                             <td class="font-w600 font-size-sm text-center">
-                                <a href="#">{{ $row->sertifikat}}</a>
+                                <a href="{{url($row->sertifikat) }}">{{ $row->sertifikat}}</a>
                             </td>
                         </tr>
                         @endforeach
@@ -350,22 +350,22 @@
                                 {{ $row->jenis_bidang}}
                             </td>
                             <td class="font-w600 font-size-sm text-center">
-                                <a href="#">{{ $row->waktu}}</a>
+                                {{ $row->waktu}}
                             </td>
                             <td class="font-size-sm text-center">
                                 {{ $row->nama_alamat_telp}}
                             </td>
                             <td class="font-w600 font-size-sm text-center">
-                                <a href="#">{{ $row->jabatan}}</a>
+                                {{ $row->jabatan}}
                             </td>
                             <td class="font-w600 font-size-sm text-center">
-                                <a href="#">{{ $row->uraian}}</a>
+                                {{ $row->uraian}}
                             </td>
                             <!-- <td class="font-w600 font-size-sm text-center">
-                                <a href="#">{{ $row->jadwal}}</a>
+                                {{ $row->jadwal}}</a>
                             </td> -->
                             <td class="font-w600 font-size-sm text-center">
-                                <a href="#">{{ $row->sertifikat}}</a>
+                                <a href="{{url($row->sertifikat) }}">{{ $row->sertifikat}}</a>
                             </td>
                         </tr>
                         @endforeach
@@ -410,22 +410,22 @@
                                 {{ $row->jenis_bidang}}
                             </td>
                             <td class="font-w600 font-size-sm text-center">
-                                <a href="#">{{ $row->waktu}}</a>
+                                {{ $row->waktu}}
                             </td>
                             <td class="font-size-sm text-center">
                                 {{ $row->nama_alamat_telp}}
                             </td>
                             <td class="font-w600 font-size-sm text-center">
-                                <a href="#">{{ $row->jabatan}}</a>
+                                {{ $row->jabatan}}
                             </td>
                             <td class="font-w600 font-size-sm text-center">
-                                <a href="#">{{ $row->uraian}}</a>
+                                {{ $row->uraian}}
                             </td>
                             <!-- <td class="font-w600 font-size-sm text-center">
-                                <a href="#">{{ $row->jadwal}}</a>
+                                {{ $row->jadwal}}</a>
                             </td> -->
                             <td class="font-w600 font-size-sm text-center">
-                                <a href="#">{{ $row->sertifikat}}</a>
+                                <a href="{{url($row->sertifikat) }}">{{ $row->sertifikat}}</a>
                             </td>
                         </tr>
                         @endforeach
@@ -470,22 +470,22 @@
                                 {{ $row->topik}}
                             </td>
                             <td class="font-w600 font-size-sm text-center">
-                                <a href="#">{{ $row->judul}}</a>
+                                {{ $row->judul}}
                             </td>
                             <td class="font-size-sm text-center">
                                 {{ $row->nama_lembaga}}
                             </td>
                             <td class="font-w600 font-size-sm text-center">
-                                <a href="#">{{ $row->kedudukan}}</a>
+                                {{ $row->kedudukan}}
                             </td>
                             <td class="font-w600 font-size-sm text-center">
-                                <a href="#">{{ $row->kedudukan_penulisan}}</a>
+                                {{ $row->kedudukan_penulisan}}
                             </td>
                             <td class="font-w600 font-size-sm text-center">
-                                <a href="#">{{ $row->jadwal}}</a>
+                                <a href="{{url($row->jadwal) }}">{{ $row->jadwal}}</a>
                             </td>
                             <td class="font-w600 font-size-sm text-center">
-                                <a href="#">{{ $row->sertifikat}}</a>
+                                <a href="{{url($row->sertifikat) }}">{{ $row->sertifikat}}</a>
                             </td>
                         </tr>
                         @endforeach
@@ -531,22 +531,22 @@
                                 {{ $row->topik}}
                             </td>
                             <td class="font-w600 font-size-sm text-center">
-                                <a href="#">{{ $row->judul}}</a>
+                                {{ $row->judul}}
                             </td>
                             <td class="font-size-sm text-center">
                                 {{ $row->nama_lembaga}}
                             </td>
                             <td class="font-w600 font-size-sm text-center">
-                                <a href="#">{{ $row->kedudukan}}</a>
+                                {{ $row->kedudukan}}
                             </td>
                             <!-- <td class="font-w600 font-size-sm text-center">
-                                <a href="#">{{ $row->kedudukan_penulisan}}</a>
+                                {{ $row->kedudukan_penulisan}}</a>
                             </td> -->
                             <td class="font-w600 font-size-sm text-center">
-                                <a href="#">{{ $row->jadwal}}</a>
+                                <a href="{{url($row->jadwal) }}">{{ $row->jadwal}}</a>
                             </td>
                             <td class="font-w600 font-size-sm text-center">
-                                <a href="#">{{ $row->sertifikat}}</a>
+                                <a href="{{url($row->sertifikat) }}">{{ $row->sertifikat}}</a>
                             </td>
                         </tr>
                         @endforeach
@@ -588,22 +588,22 @@
                                 {{ $row->judul}}
                             </td>
                             <td class="font-w600 font-size-sm text-center">
-                                <a href="#">{{ $row->waktu}}</a>
+                                {{ $row->waktu}}
                             </td>
                             <td class="font-size-sm text-center">
                                 {{ $row->nama_lembaga}}
                             </td>
                             <td class="font-w600 font-size-sm text-center">
-                                <a href="#">{{ $row->jumlah}}</a>
+                                {{ $row->jumlah}}
                             </td>
                             <td class="font-w600 font-size-sm text-center">
-                                <a href="#">{{ $row->jenis}}</a>
+                                {{ $row->jenis}}
                             </td>
                             <td class="font-w600 font-size-sm text-center">
-                                <a href="#">{{ $row->jadwal}}</a>
+                                <a href="{{url($row->jadwal) }}">{{ $row->jadwal}}</a>
                             </td>
                             <td class="font-w600 font-size-sm text-center">
-                                <a href="#">{{ $row->sertifikat}}</a>
+                                <a href="{{url($row->sertifikat) }}">{{ $row->sertifikat}}</a>
                             </td>
                         </tr>
                         @endforeach
@@ -648,22 +648,22 @@
                                 {{ $row->jenis}}
                             </td>
                             <td class="font-w600 font-size-sm text-center">
-                                <a href="#">{{ $row->waktu}}</a>
+                                {{ $row->waktu}}
                             </td>
                             <td class="font-size-sm text-center">
                                 {{ $row->nama_lembaga}}
                             </td>
                             <td class="font-w600 font-size-sm text-center">
-                                <a href="#">{{ $row->jumlah}}</a>
+                                {{ $row->jumlah}}
                             </td>
                             <td class="font-w600 font-size-sm text-center">
-                                <a href="#">{{ $row->lamanya}}</a>
+                                {{ $row->lamanya}}
                             </td>
                             <td class="font-w600 font-size-sm text-center">
-                                <a href="#">{{ $row->jadwal}}</a>
+                                <a href="{{url($row->jadwal) }}">{{ $row->jadwal}}</a>
                             </td>
                             <td class="font-w600 font-size-sm text-center">
-                                <a href="#">{{ $row->sertifikat}}</a>
+                                <a href="{{url($row->sertifikat) }}">{{ $row->sertifikat}}</a>
                             </td>
                         </tr>
                         @endforeach
@@ -709,21 +709,21 @@
                                 {{ $row->topik}}
                             </td>
                             <td class="font-w600 font-size-sm text-center">
-                                <a href="#">{{ $row->judul }}
+                                {{ $row->judul }}
                             <td class="font-size-sm text-center">
                                 {{ $row->jenis}}
                             </td>
                             <!-- <td class="font-w600 font-size-sm text-center">
-                                <a href="#">{{ $row->jumlah}}</a>
+                                {{ $row->jumlah}}</a>
                             </td>
                             <td class="font-w600 font-size-sm text-center">
-                                <a href="#">{{ $row->lamanya}}</a>
+                                {{ $row->lamanya}}</a>
                             </td> -->
                             <td class="font-w600 font-size-sm text-center">
-                                <a href="#">{{ $row->jadwal}}</a>
+                                <a href="{{url($row->jadwal) }}">{{ $row->jadwal}}</a>
                             </td>
                             <!-- <td class="font-w600 font-size-sm text-center">
-                                <a href="#">{{ $row->sertifikat}}</a>
+                                {{ $row->sertifikat}}</a>
                             </td> -->
                         </tr>
                         @endforeach
@@ -768,21 +768,21 @@
                                 {{ $row->judul}}
                             </td>
                             <td class="font-w600 font-size-sm text-center">
-                                <a href="#">{{ $row->bidang }}
+                                {{ $row->bidang }}
                             <td class="font-size-sm text-center">
                                 {{ $row->jumlah}}
                             </td>
                             <!-- <td class="font-w600 font-size-sm text-center">
-                                <a href="#">{{ $row->jumlah}}</a>
+                                {{ $row->jumlah}}</a>
                             </td>
                             <td class="font-w600 font-size-sm text-center">
-                                <a href="#">{{ $row->lamanya}}</a>
+                                {{ $row->lamanya}}</a>
                             </td> -->
                             <td class="font-w600 font-size-sm text-center">
-                                <a href="#">{{ $row->jadwal}}</a>
+                                <a href="{{url($row->jadwal) }}">{{ $row->jadwal}}</a>
                             </td>
                             <!-- <td class="font-w600 font-size-sm text-center">
-                                <a href="#">{{ $row->sertifikat}}</a>
+                                {{ $row->sertifikat}}</a>
                             </td> -->
                         </tr>
                         @endforeach
@@ -831,21 +831,21 @@
                                 {{ $row->jenis_pendidikan}}
                             </td>
                             <td class="font-w600 font-size-sm text-center">
-                                <a href="#">{{ $row->waktu }}</a></td>
+                                {{ $row->waktu }}</td>
                             <td class="font-size-sm text-center">
                                 {{ $row->nama_alamat_telp}}
                             </td>
                             <!-- <td class="font-w600 font-size-sm text-center">
-                                <a href="#">{{ $row->jumlah}}</a>
+                                {{ $row->jumlah}}</a>
                             </td>
                             <td class="font-w600 font-size-sm text-center">
-                                <a href="#">{{ $row->lamanya}}</a>
+                                {{ $row->lamanya}}</a>
                             </td> -->
                             <td class="font-w600 font-size-sm text-center">
-                                <a href="#">{{ $row->jadwal}}</a>
+                                <a href="{{url($row->jadwal) }}">{{ $row->jadwal}}</a>
                             </td>
                             <td class="font-w600 font-size-sm text-center">
-                                <a href="#">{{ $row->sertifikat}}</a>
+                                <a href="{{url($row->sertifikat) }}">{{ $row->sertifikat}}</a>
                             </td>
                         </tr>
                         @endforeach
@@ -893,21 +893,21 @@
                                 {{ $row->nama_organisasi}}
                             </td>
                             <!-- <td class="font-w600 font-size-sm text-center">
-                                <a href="#">{{ $row->waktu }} </a></td> -->
+                                {{ $row->waktu }} </a></td> -->
                             <td class="font-size-sm text-center">
                                 {{ $row->nama_alamat_telp}}
                             </td>
                             <td class="font-w600 font-size-sm text-center">
-                                <a href="#">{{ $row->kedudukan}}</a>
+                                {{ $row->kedudukan}}
                             </td>
                             <td class="font-w600 font-size-sm text-center">
-                                <a href="#">{{ $row->lamanya}}</a>
+                                {{ $row->lamanya}}
                             </td>
                             <td class="font-w600 font-size-sm text-center">
-                                <a href="#">{{ $row->jadwal}}</a>
+                                <a href="{{url($row->jadwal) }}">{{ $row->jadwal}}</a>
                             </td>
                             <td class="font-w600 font-size-sm text-center">
-                                <a href="#">{{ $row->sertifikat}}</a>
+                                <a href="{{url($row->sertifikat) }}">{{ $row->sertifikat}}</a>
                             </td>
                         </tr>
                         @endforeach
@@ -934,7 +934,7 @@
                             <!-- <th class="text-center">Waktu dan Tempat
                                 Sebagai Pakar/Nara Sumber</th> -->
                             <th class="text-center">Instansi Pemberi Tanda Jasa / Award</th>
-                            <th class="text-center">Tahun Penerimaan Tanda Jasa / Awardi
+                            <th class="text-center">Tahun Penerimaan Tanda Jasa / Award
                             </th>
                             <!-- <th class="text-center">Periode Tahun
                                 Masa Jabatan</th> -->
@@ -954,21 +954,21 @@
                                 {{ $row->bentuk}}
                             </td>
                             <!-- <td class="font-w600 font-size-sm text-center">
-                                <a href="#">{{ $row->waktu }} </a></td> -->
+                                {{ $row->waktu }} </a></td> -->
                             <td class="font-size-sm text-center">
                                 {{ $row->instansi}}
                             </td>
                             <td class="font-w600 font-size-sm text-center">
-                                <a href="#">{{ $row->tahun}}</a>
+                                {{ $row->tahun}}
                             </td>
                             <!-- <td class="font-w600 font-size-sm text-center">
-                                <a href="#">{{ $row->lamanya}}</a>
+                                {{ $row->lamanya}}</a>
                             </td> -->
                             <td class="font-w600 font-size-sm text-center">
-                                <a href="#">{{ $row->jadwal}}</a>
+                                <a href="{{url($row->jadwal) }}">{{ $row->jadwal}}</a>
                             </td>
                             <td class="font-w600 font-size-sm text-center">
-                                <a href="#">{{ $row->sertifikat}}</a>
+                                <a href="{{url($row->sertifikat) }}">{{ $row->sertifikat}}</a>
                             </td>
                         </tr>
                         @endforeach
