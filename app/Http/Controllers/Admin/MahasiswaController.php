@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Mahasiswa;
 use App\Models\Dosen;
+use App\Models\tabelsubmitrpl;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Htpp\Response;
@@ -66,6 +67,10 @@ class MahasiswaController extends Controller
             'aye' => 'required'
         ]);
         // dd($validatedData);
+        tabelsubmitrpl::create([
+            'nim' => $request->nim,
+            'status' => 0,
+        ]);
         Mahasiswa::create($validatedData);
         return redirect(route('admin.mahasiswa.index'))->with('message','Mahasiswa Baru Berhasil dibuat!');
     }
